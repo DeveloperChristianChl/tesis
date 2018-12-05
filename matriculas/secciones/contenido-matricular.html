@@ -1,0 +1,113 @@
+<section class="content">
+    <div class="container-fluid">
+        <!-- Exportable Table -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            MATRICULA DE ALUMNOS
+                        </h2>
+                        <ul class="header-dropdown m-r--5">
+                            <li class="dropdown">
+                                <a href="index.php?web=matriculas" class="btn bg-indigo waves-effect">
+                                    <i class="material-icons">arrow_back</i>
+                                    <span>IR A LA LISTA DE MATRICULAS</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <div class="col-md-12">
+                                        <label class="form-control" >ALUMNO</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-line">
+                                            <input class="form-control" type="text" id="txtCodigo" required autofocus style="text-transform: uppercase;" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="form-line">
+                                            <input class="form-control" type="text" id="txtNombres" required autofocus style="text-transform: uppercase;" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1 col-xs-6" style="text-align: center;">
+                                        <button type="button" class="btn btn-info waves-effect" data-toggle="modal" data-target="#listaPersonasModal"><i class="material-icons">search</i></button>
+                                    </div>
+                                    <div class="col-md-1 col-xs-6" style="text-align: center;">
+                                        <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#nuevaPersonaModal"><i class="material-icons">control_point</i></button>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label class="form-control" >PADRE</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-line">
+                                            <input class="form-control" type="text" id="txtCodigo" required autofocus style="text-transform: uppercase;" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="form-line">
+                                            <input class="form-control" type="text" id="txtNombres" required autofocus style="text-transform: uppercase;" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1 col-xs-6" style="text-align: center;">
+                                        <button type="button" class="btn btn-info waves-effect" data-toggle="modal" data-target="#listaPersonasModal"><i class="material-icons">search</i></button>
+                                    </div>
+                                    <div class="col-md-1 col-xs-6" style="text-align: center;">
+                                        <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#nuevaPersonaModal"><i class="material-icons">control_point</i></button>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label class="form-control" >MADRE</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-line">
+                                            <input class="form-control" type="text" id="txtCodigo" required autofocus style="text-transform: uppercase;" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="form-line">
+                                            <input class="form-control" type="text" id="txtNombres" required autofocus style="text-transform: uppercase;" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1 col-xs-6" style="text-align: center;">
+                                        <button type="button" class="btn btn-info waves-effect" data-toggle="modal" data-target="#listaPersonasModal"><i class="material-icons">search</i></button>
+                                    </div>
+                                    <div class="col-md-1 col-xs-6" style="text-align: center;">
+                                        <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#nuevaPersonaModal"><i class="material-icons">control_point</i></button>
+                                    </div>
+                                    <div class=" col-md-3">
+                                        <label class="form-control" >AULA</label>
+                                        <div class="form-line">
+                                            <select class="form-control" id="cboAula" name="tipo" required autofocus>
+                                                {{ #CBO-AULAS# }}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-control" >DOCENTE</label>
+                                        <div class="form-line">
+                                            <input class="form-control" type="text" id="txtDocente" required autofocus style="text-transform: uppercase;" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-control" >COSTO</label>
+                                        <div class="form-line">
+                                            <input class="form-control" type="text" id="txtCosto" value="{{ #COSTO-MATRICULA# }}" required autofocus style="text-transform: uppercase;" readonly>
+                                        </div>
+                                    </div>
+                                    <div class=" col-md-12 text-right">
+                                        <button id="btnEditarUsuario" type="button" class="btn btn-primary btn-lg waves-effect">GUARDAR DATOS</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #END# Exportable Table -->
+    </div>
+</section>

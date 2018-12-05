@@ -1,0 +1,89 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>
+                {{ #NOMBRE-EDITAR# }}
+                <small>{{ #TIPO-USUARIO-EDITAR# }}</small>
+            </h2>
+        </div>
+        <!-- Exportable Table -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            EDITAR USUARIO
+                        </h2>
+                        <ul class="header-dropdown m-r--5">
+                            <li class="dropdown">
+                                <a href="index.php?web=usuarios" class="btn bg-indigo waves-effect">
+                                    <i class="material-icons">arrow_back</i>
+                                    <span>IR A LA LISTA DE USUARIOS</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body">
+                        <h5 style="color: blue;">
+                            DATOS PERSONALES
+                        </h5>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <div class=" col-md-6">
+                                        <label class="form-control" >CÓDIGO DEL USUARIO</label>
+                                        <div class="form-line">
+                                            <input class="form-control" type="text" id="txtCodigoUsuario" value="{{ #CODIGO-USUARIO-EDITAR# }}" required autofocus style="text-transform: uppercase;" readonly>
+                                        </div>
+                                    </div>
+                                    <div class=" col-md-6">
+                                        <label class="form-control" >DNI</label>
+                                        <div class="form-line">
+                                            <input class="form-control" type="number" maxlength="8" id="txtDniPersona" value="{{ #DNI-PERSONA# }}" required autofocus style="text-transform: uppercase;" readonly>                                       </div>
+                                    </div>
+                                    <div class=" col-md-12">
+                                        <label class="form-control" >NOMBRES</label>
+                                        <div class="form-line">
+                                            <input class="form-control" type="text" id="txtNombresPersona" value="{{ #NOMBRES-PERSONA# }}" required autofocus style="text-transform: uppercase;">
+                                        </div>
+                                    </div>
+                                    <div class=" col-md-6">
+                                        <label class="form-control" >APELLIDO PATERNO</label>
+                                        <div class="form-line">
+                                            <input class="form-control" type="text" id="txtApPaternoPersona" value="{{ #AP-PATERNO-PERSONA# }}" required autofocus style="text-transform: uppercase;">
+                                        </div>
+                                    </div>
+                                    <div class=" col-md-6">
+                                        <label class="form-control" >APELLIDO MATERNO</label>
+                                        <div class="form-line">
+                                            <input class="form-control" type="text" id="txtApMaternoPersona" value="{{ #AP-MATERNO-PERSONA# }}" required autofocus style="text-transform: uppercase;">
+                                        </div>
+                                    </div>
+                                    <div class=" col-md-6">
+                                        <label class="form-control" >FECHA DE NACIMIENTO</label>
+                                        <div class="form-line">
+                                            <input class="form-control" type="date" id="txtFNacimientoPersona" value="{{ #FECHA-NACIMIENTO-PERSONA# }}" required autofocus style="text-transform: uppercase;">
+                                        </div>
+                                    </div>
+                                    <div class=" col-md-6">
+                                        <label class="form-control" >SEXO</label>
+                                        <div class="form-line">
+                                            <select class="form-control" id="cboSexoPersona" name="tipo" required autofocus>
+                                                <option value="HOMBRE" {{ #SEXO-SEL-01# }}>HOMBRE</option>
+                                                <option value="MUJER" {{ #SEXO-SEL-02# }}>MUJER</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class=" col-md-12 text-right">
+                                        <button id="btnEditarUsuario" type="button" class="btn btn-primary btn-lg waves-effect">GUARDAR DATOS</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #END# Exportable Table -->
+    </div>
+</section>

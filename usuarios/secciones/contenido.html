@@ -1,0 +1,248 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>
+                USUARIOS
+                <small>Lista de usuarios con acceso al sistema</small>
+            </h2>
+        </div>
+        <!-- Exportable Table -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            LISTA DE USUARIOS
+                        </h2>
+                        <ul class="header-dropdown m-r--5">
+                            <li class="dropdown">
+                                <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#nuevoUsuarioModal">
+                                    <i class="material-icons">control_point</i>
+                                    <span>AGREGAR USUARIO</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="tbl-usuarios">
+                                <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Dni</th>
+                                    <th>Nombre completo</th>
+                                    <th>Usuario</th>
+                                    <th>Cargo</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tfoot>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Dni</th>
+                                    <th>Nombre completo</th>
+                                    <th>Usuario</th>
+                                    <th>Cargo</th>
+                                    <th></th>
+                                </tr>
+                                </tfoot>
+                                <tbody>
+                                    {{ #TABLA-USUARIOS# }}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #END# Exportable Table -->
+    </div>
+</section>
+
+<div class="modal fade" id="nuevoUsuarioModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">REGISTRO DE NUEVO USUARIO</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="input-group">
+                            <div class="col-md-12">
+                                <label class="form-control" >PERSONA</label>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-line">
+                                    <input class="form-control" type="text" id="txtCodigo" required autofocus style="text-transform: uppercase;" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="form-line">
+                                    <input class="form-control" type="text" id="txtNombres" required autofocus style="text-transform: uppercase;" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-xs-6" style="text-align: center;">
+                                <button type="button" class="btn btn-info waves-effect" data-toggle="modal" data-target="#listaPersonasModal"><i class="material-icons">search</i></button>
+                            </div>
+                            <div class="col-md-1 col-xs-6" style="text-align: center;">
+                                <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#nuevaPersonaModal"><i class="material-icons">control_point</i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="input-group">
+                            <div class=" col-md-6">
+                                <label class="form-control" >TIPO DE PERSONA</label>
+                                <div class="form-line">
+                                    <select class="form-control" id="cboTipo" required autofocus>
+                                        <option value="0" disabled selected hidden="hidden">-- SELECCIONE TIPO DE PERSONA --</option>
+                                        {{ #CBO-TIPO-PERSONA# }}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class=" col-md-6">
+                                <label class="form-control" >NOMBRE DE USUARIO</label>
+                                <div class="form-line">
+                                    <input type="hidden" id="txtNombreUsuarioHidden">
+                                    <input class="form-control" type="text" id="txtNombreUsuario" required autofocus style="text-transform: uppercase;" readonly>
+                                </div>
+                            </div>
+                            <div class=" col-md-6">
+                                <label class="form-control" >CONTRASEÑA</label>
+                                <div class="form-line">
+                                    <input type="hidden" id="txtClaveHidden">
+                                    <input class="form-control" type="text" id="txtClave" autofocus readonly>
+                                </div>
+                            </div>
+                            <div class=" col-md-6">
+                                <label class="form-control" id="lblClaveRepetida" ></label>
+                                <div class="form-line" id="divClaveRepetida" style="display: none;">
+                                    <input class="form-control" type="text" id="txtClaveRepetida" autofocus>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <input type="checkbox" name="chkAutomatica" id="chkAutomatica" checked="true" class="filled-in chk-col-pink">
+                                <label for="chkAutomatica">GENERAR CONTRASEÑA AUTOMATICAMENTE</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal" style="float: left;">CANCELAR</button>
+                <button type="button" class="btn btn-primary waves-effect" id="btnGuardarUsuario">GUARDAR DATOS</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="nuevaPersonaModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">REGISTRO DE NUEVA PERSONA</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="input-group">
+                            <div class=" col-md-6">
+                                <label class="form-control" >CÓDIGO</label>
+                                <div class="form-line">
+                                    <input class="form-control" type="text" id="txtCodigoPersona" value="{{ #CODIGO-PERSONA# }}" required autofocus style="text-transform: uppercase;" readonly>
+                                </div>
+                            </div>
+                            <div class=" col-md-6">
+                                <label class="form-control" >DNI</label>
+                                <div class="form-line">
+                                    <input class="form-control" type="number" maxlength="8" id="txtDniPersona" required autofocus style="text-transform: uppercase;" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                                </div>
+                            </div>
+                            <div class=" col-md-12">
+                                <label class="form-control" >NOMBRES</label>
+                                <div class="form-line">
+                                    <input class="form-control" type="text" id="txtNombresPersona" required autofocus style="text-transform: uppercase;">
+                                </div>
+                            </div>
+                            <div class=" col-md-6">
+                                <label class="form-control" >APELLIDO PATERNO</label>
+                                <div class="form-line">
+                                    <input class="form-control" type="text" id="txtApPaternoPersona" required autofocus style="text-transform: uppercase;">
+                                </div>
+                            </div>
+                            <div class=" col-md-6">
+                                <label class="form-control" >APELLIDO MATERNO</label>
+                                <div class="form-line">
+                                    <input class="form-control" type="text" id="txtApMaternoPersona" required autofocus style="text-transform: uppercase;">
+                                </div>
+                            </div>
+                            <div class=" col-md-6">
+                                <label class="form-control" >FECHA DE NACIMIENTO</label>
+                                <div class="form-line">
+                                    <input class="form-control" type="date" id="txtFNacimientoPersona" required autofocus style="text-transform: uppercase;">
+                                </div>
+                            </div>
+                            <div class=" col-md-6">
+                                <label class="form-control" >SEXO</label>
+                                <div class="form-line">
+                                    <select class="form-control" id="cboSexoPersona" name="tipo" required autofocus>
+                                        <option value="0" disabled selected hidden="hidden">-- SELECCIONE SEXO --</option>
+                                        <option value="HOMBRE">HOMBRE</option>
+                                        <option value="MUJER">MUJER</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal" style="float: left;">CANCELAR</button>
+                <button id="btnGuardarPersona" type="button" class="btn btn-primary waves-effect">GUARDAR DATOS</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="listaPersonasModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">LISTA DE PERSONAS REGISTRADAS</h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-hover js-basic-example dataTable" id="general">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>Código</th>
+                            <th>Dni</th>
+                            <th>Nombre completo</th>
+                            <th>Sexo</th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th></th>
+                            <th>Código</th>
+                            <th>Dni</th>
+                            <th>Nombre completo</th>
+                            <th>Sexo</th>
+                        </tr>
+                        </tfoot>
+                        <tbody>
+                        {{ #TABLA-PERSONAS# }}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal" style="float: left;">CANCELAR</button>
+            </div>
+        </div>
+    </div>
+</div>
